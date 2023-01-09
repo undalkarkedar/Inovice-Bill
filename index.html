@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invoice Bill</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="filter-container">
+        <span class="filter-header">All Invoices </span>
+        <div class="filter-style">
+          <span>
+            <label>Begin Date</label>
+            <input type="date" id="begin-date" onchange="beginDate()"
+          /></span>
+          <span>
+            <label>End Date</label>
+            <input type="date" id="end-date" onchange="endDate()"
+          /></span>
+          <span>
+            <label>Status</label>
+            <select id="status-filter" onchange="onStatusFilter()">
+              <option value="any" selected>Any</option>
+              <option value="draft">Draft</option>
+              <option value="paid">Paid</option>
+              <option value="partial payment">Partial Payment</option>
+            </select>
+          </span>
+          <span>
+            <label>Client</label>
+            <select id="client-filter" onchange="onClientFilter()">
+              <option value="any" selected>Any</option>
+              <option value="in-state">In-State</option>
+              <option value="out-state">Out-State</option>
+            </select></span
+          >
+        </div>
+        <p class="filter-info">
+          *This data has been show according to your given informations
+        </p>
+      </div>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th onclick="sortColumn('id')">
+              <span
+                >Invoice
+                <span class="material-symbols-sharp"> arrow_drop_up </span>
+                <span class="material-symbols-sharp"> arrow_drop_down </span>
+              </span>
+            </th>
+            <th onclick="sortColumn('clientName')">Client name</th>
+            <th onclick="sortColumn('clientType')">Client type</th>
+            <th onclick="sortColumn('date')">Date</th>
+            <th onclick="sortColumn('dueDate')">Due date</th>
+            <th onclick="sortColumn('total')">Total</th>
+            <th onclick="sortColumn('balance')">Balance</th>
+            <th onclick="sortColumn('status')">Status</th>
+          </tr>
+        </thead>
+        <tbody id="myTable"></tbody>
+      </table>
+    </div>
+
+    <script src="src/index.js" defer></script>
+  </body>
+</html>
